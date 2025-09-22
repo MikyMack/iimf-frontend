@@ -88,7 +88,7 @@
   border-radius: 100%;
   padding: 0;
   font-size: 13px;
-  background: #d73b3e;
+  background: var(--ed-primary-color);
   transition: all 0.4s ease;
   margin: 0;
   float: right;
@@ -142,7 +142,7 @@
 .offcanvas__sub_menu_item.active,
 .offcanvas__menu_item.active,
 .offcanvas__sub_menu_item:hover {
-  color: var(--ed-primary-color);
+  color: #204d96;
 }
 .offcanvas__sub_menu_item ~ .offcanvas__sub_menu .offcanvas__sub_menu_item {
   margin-left: 32px;

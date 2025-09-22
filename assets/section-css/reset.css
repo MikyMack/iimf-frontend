@@ -15,12 +15,12 @@
 
 /* Custom Variable Colors */
 :root {
-  --ed-primary-color: #543ee8;
-  --ed-secondary-color: #011c1a;
-  --ed-tertiary-color: #ffcd20;
+  --ed-primary-color:  linear-gradient(135deg, #24519a, #0f1624, #06090f);
+  --ed-secondary-color: linear-gradient(135deg, #050608, #24519a, #24519a);
+  --ed-tertiary-color: #000000;
   --ed-white-color: #fff;
   --ed-offwhite-color: #f5f5f5;
-  --ed-title-color: #011c1a;
+  --ed-title-color: #000000;
   --ed-paragraph-color: #5f5d5d;
   --ed-border-color: #f0f2f2;
   --ed-font-family: "Poppins", sans-serif;
@@ -116,7 +116,7 @@ body {
 
 /* Main Container */
 .ed-container {
-  max-width: 1170px;
+
   margin: auto;
 }
 .ed-container-expand {
@@ -1046,7 +1046,7 @@ p {
   content: "";
   height: 50px;
   width: 50px;
-  background: url(../images/favicon.svg);
+  background: url(../images/iimf/logo.png);
   transform: translateX(-50%);
   background-repeat: no-repeat;
   background-position: center;
@@ -1057,7 +1057,7 @@ p {
   -webkit-animation: spinner 1s infinite linear;
   animation: spinner 1s infinite linear;
   border-radius: 50%;
-  border: 3px solid #543ee81a;
+  border: 3px solid #103e5e1a;
   border-top-color: var(--ed-primary-color);
   height: 110px;
   margin: 0 auto 30px auto;
@@ -1223,11 +1223,12 @@ p {
 
 .nice-select .option:hover {
   background-color: var(--ed-primary-color);
+  color: #24519a;
 }
 .nice-select .option {
   line-height: 42px;
-  min-height: 42px;
-  padding-left: 16px;
+  height: 42px;
+  padding-left: 16px!important;
   padding-right: 16px;
 }
 .nice-select::after {
@@ -1243,6 +1244,7 @@ p {
 .nice-select .list:hover .option:not(:hover) {
   color: var(--ed-paragraph-color);
 }
+
 
 .nice-select .list::-webkit-scrollbar {
   width: 4px !important;
@@ -1283,7 +1285,7 @@ p {
   line-height: 50px;
   background: var(--ed-white-color);
   border-radius: 100%;
-  color: var(--ed-primary-color);
+   color: black;
   text-align: center;
   font-size: 20px;
   top: 4px;

@@ -43,10 +43,10 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: var(--ed-tertiary-color);
+ background: linear-gradient(135deg, #24519a, #0f1624, #06090f);
   border-radius: 41px;
   padding: 4px 14px;
-  color: #263238;
+  color: white;
   font-size: 15px;
   font-weight: 400;
   display: inline-block;
@@ -135,7 +135,7 @@
 }
 
 .ed-course__price {
-  color: #543ee8;
+  color: #132c55;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
@@ -152,12 +152,14 @@
   font-weight: 400;
   line-height: 24px;
   letter-spacing: -0.28px;
+  color: #132c55;
 }
 
 .ed-course__students i {
   font-size: 16px;
   position: relative;
   top: 1px;
+   color: #132c55;
 }
 
 /* Course Style 2 */

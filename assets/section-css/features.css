@@ -2,7 +2,8 @@
     Start Features CSS
 ===================================================================================================*/
 .ed-features {
-  background: var(--ed-secondary-color);
+background: linear-gradient(135deg, #24519a, #0f1624, #06090f);
+
   padding: 40px 0px 80px;
 }
 .ed-category__shape-1 {

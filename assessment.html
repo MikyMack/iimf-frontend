@@ -11,8 +11,8 @@
         <meta name="keywords" content="iimfacademy" />
         <meta name="author" content="BizanTheme" />
 
-        <title>IIMF |BLOGS</title>
-        <link rel="shortcut icon" href="assets/images/iimf/logo.png" />
+        <title>IIMF | ASSESSMENT</title>
+ <link rel="shortcut icon" href="assets/images/iimf/logo.png" />
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="assets/plugins/css/bootstrap.min.css" />
@@ -32,10 +32,35 @@
         <link rel="stylesheet" href="assets/plugins/css/uicons.css" />
         <!-- Main CSS -->
         <link rel="stylesheet" href="style.css" />
+                <link rel="stylesheet" href="style.css" />
                         <link
   href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
   rel="stylesheet"
 />
+        <style>
+        /* Assessment Modal - Scoped Styling */
+        #assessmentModal .modal-content.assessment-modal{border:0; border-radius:18px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,.18)}
+        #assessmentModal .am-header{background:linear-gradient(135deg,#1c2a52,#0f1624 60%,#06090f); color:#fff; padding:20px 24px; position:relative}
+        #assessmentModal .am-header .am-title{display:flex; align-items:center; gap:12px; margin:0}
+        #assessmentModal .am-header .am-title .am-badge{background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18); color:#fff; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; border-radius:10px}
+        #assessmentModal .am-header p{opacity:.85; margin:6px 0 0 52px; font-size:14px}
+        #assessmentModal .am-body{background:#ffffff; padding:20px 24px}
+        #assessmentModal .am-progress{height:8px; background:#eef1f6; border-radius:999px; overflow:hidden; margin:8px 0 18px}
+        #assessmentModal .am-progress .am-bar{height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#2dd4bf); transition:width .35s ease}
+        #assessmentModal .meta-row{display:flex; gap:8px; align-items:center; justify-content:space-between; margin-bottom:12px}
+        #assessmentModal .meta-row .badge{border-radius:999px; padding:6px 10px}
+        #assessmentModal #questionText{font-weight:600; color:#0f1624}
+        #assessmentModal #optionsContainer .list-group-item{border:1px solid #e7ebf3; border-radius:14px; margin-bottom:10px; padding:12px 14px; cursor:pointer; transition:all .2s ease; display:flex; gap:10px}
+        #assessmentModal #optionsContainer .list-group-item:hover{box-shadow:0 6px 18px rgba(15,22,36,.06); transform:translateY(-1px)}
+        #assessmentModal #optionsContainer .list-group-item.active{border-color:#192d51; background:linear-gradient(135deg, #24519a, #0f1624, #06090f); color: white;}
+        #assessmentModal #optionsContainer .form-check-input{margin-top:0}
+        #assessmentModal .am-actions .btn{border-radius:10px;background: linear-gradient(135deg, #24519a, #0f1624, #06090f); color: white;}
+        #assessmentModal .am-actions .btn-primary{background:linear-gradient(135deg, #24519a, #0f1624, #06090f); border:0}
+        #assessmentModal .am-actions .btn-success{background:linear-gradient(135deg,#22c55e,#16a34a); border:0}
+        #assessmentModal .result-head h4{color:#0f1624; margin:0}
+        #assessmentModal .result-stats .badge{border-radius:10px; padding:10px 12px; font-size:14px}
+        @media (max-width: 575.98px){#assessmentModal .am-header{padding:16px} #assessmentModal .am-body{padding:16px}}
+        </style>
     </head>
 
     <body class="element-wrapper">
@@ -55,7 +80,7 @@
         </div>
         <!-- Custom Cursor End -->
 
-   <!-- Start Mobile Menu Offcanvas -->
+       <!-- Start Mobile Menu Offcanvas -->
           <div class="modal mobile-menu-modal offcanvas-modal fade" id="offcanvas-modal">
             <div class="modal-dialog offcanvas-dialog">
                 <div class="modal-content">
@@ -82,7 +107,7 @@
                                
                                 </li>
                         <li class="offcanvas__menu_li">
-                                    <a class="offcanvas__menu_item" href="assessment.html">Assessment</a>
+                                    <a class="offcanvas__menu_item active" href="assessment.html">Assessment</a>
                                
                                 </li>
                                 <li class="offcanvas__menu_li">
@@ -100,7 +125,7 @@
                           
                                 </li>
      <li class="offcanvas__menu_li">
-                                    <a class="offcanvas__menu_item active" href="blog.html">News</a>
+                                    <a class="offcanvas__menu_item " href="blog.html">News</a>
                           
                                 </li>
                                 <li class="offcanvas__menu_li">
@@ -196,7 +221,7 @@
                             <!-- Navigation Menu -->
                             <nav class="ed-header__navigation">
                                 <ul class="ed-header__menu">
-                                    <li >
+                                    <li>
                                         <a href="index.html">Home</a>
                                     
                                     </li>
@@ -204,7 +229,7 @@
                                         <a href="course.html">Courses</a>
                                  
                                     </li>
-                                       <li>
+                                       <li  class="active">
                                         <a href="assessment.html">Assessment</a>
                                  
                                     </li>
@@ -249,7 +274,7 @@
                                         <a href="gallery.html">Gallery</a>
                                  
                                     </li>
-                                    <li class="active">
+                                    <li>
                                         <a href="blog.html">News</a>
                                  
                                     </li>
@@ -298,11 +323,11 @@
                                 <div class="row justify-content-center">
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="ed-breadcrumbs__content">
-                                            <h3 class="ed-breadcrumbs__title">Latest Blog & News</h3>
+                                            <h3 class="ed-breadcrumbs__title">Assessment</h3>
                                             <ul class="ed-breadcrumbs__menu">
                                                 <li class="active"><a href="index.html">Home</a></li>
                                                 <li>/</li>
-                                                <li>Latest Blog</li>
+                                                <li>Assessment</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -312,243 +337,99 @@
                         <!-- End Bredcrumbs Area -->
                     </div>
 
-                    <!-- Start Blog Area -->
-<section class="ed-blog ed-blog-page section-gap">
+                    <!-- Start Course Details Area -->
+         <section class="ed-course__details">
     <div class="container ed-container">
         <div class="row">
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/1.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Education</a>
+            <!-- Left Content -->
+            <div class="col-lg-8 col-12">
+                <div class="ed-course__details-content">
+                    <!-- Banner Image -->
+                    <div class="ed-course__details-img">
+                        <img src="assets/images/iimf/asmnt-bnr.jpg" alt="assessment-banner" />
                     </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>12 March, 2025</li>
-                            <li><i class="fi fi-rr-print"></i>IIMF</li>
+                    <h3 >
+                        Online Skill Assessment – Test Your Knowledge
+                    </h3>
+                    <p>
+                        Our assessment is designed to evaluate your skills and knowledge in your chosen domain. 
+                        This helps you identify strengths, improvement areas, and readiness for real-world projects.
+                    </p>
+                    <br />
+                    <p>
+                        Take the assessment and receive instant feedback with detailed results. 
+                        Completing the test successfully can also earn you a certificate of participation.
+                    </p>
+
+                    <!-- What You’ll Get -->
+                    <div class="ed-course__details-list">
+                        <h5>What’s Included in the Assessment?</h5>
+                        <ul>
+                            <li><img src="assets/images/icons/icon-check-blue.svg" alt="check" />Multiple choice & practical scenario-based questions</li>
+                            <li><img src="assets/images/icons/icon-check-blue.svg" alt="check" />Instant scoring with detailed performance report</li>
+
+                            <li><img src="assets/images/icons/icon-check-blue.svg" alt="check" />Certificate available after completion</li>
                         </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                How Online Learning is Transforming the Future of Education
-                            </h4>
-                        </a>
+                    </div>
+
+                    <!-- Second Image -->
+                    <div class="ed-course__details-img image-2">
+                        <img src="assets/images/iimf/asmnt-bnr2.jpg" alt="assessment-steps" />
+                    </div>
+
+                    <!-- Why Take This Assessment -->
+                    <div class="ed-course__details-list">
+                        <h5>Why Take This Assessment?</h5>
+                        <ul>
+                            <li><img src="assets/images/icons/icon-check-blue.svg" alt="check" />Identify strengths and weaknesses in your skillset</li>
+                            <li><img src="assets/images/icons/icon-check-blue.svg" alt="check" />Prepare for interviews and job applications</li>
+                            <li><img src="assets/images/icons/icon-check-blue.svg" alt="check" />Benchmark your knowledge with industry standards</li>
+                            <li><img src="assets/images/icons/icon-check-blue.svg" alt="check" />Receive valuable insights and personalized feedback</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/2.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Career</a>
+            <!-- Right Sidebar -->
+            <div class="col-lg-4 col-12">
+                <div class="ed-course__sidebar">
+                    <div class="ed-course__sidebar-widget">
+                        <h4 class="ed-course__sidebar-title">Start Your Assessment</h4>
+                        <form class="ed-assessment-form" id="assessmentForm">
+                            <div class="form-group mb-3">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter your name" required />
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your email" required />
+                            </div>
+                                 <div class="form-group mb-3">
+                                <label for="phone number">Phone Number</label>
+                                <input type="tel" id="tel" class="form-control" placeholder="Enter your Phone Number" required />
+                            </div>
+                            <div class="form-group d-flex flex-column mb-3">
+                                <label for="level">Difficulty Level</label>
+                                <select id="level" class="form-control " required>
+                                    <option value="">-- Select --</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option   value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                            <button style="background: linear-gradient(135deg, #24519a, #0f1624, #06090f); padding: 10px; color: white;" type="submit" class=" assment-btn w-100" id="startAssessmentBtn">Start Assessment</button>
+                        </form>
                     </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>25 February, 2025</li>
-                                                       <li><i class="fi fi-rr-print"></i>IIMF</li>
-                        </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                Top Skills Employers Seek in 2025 and How to Build Them
-                            </h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/3.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Technology</a>
-                    </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>10 April, 2025</li>
-                            <li><i class="fi fi-rr-print"></i>IIMF</li>
-                        </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                Artificial Intelligence in Classrooms: Opportunities & Challenges
-                            </h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/4.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Development</a>
-                    </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>22 May, 2025</li>
-                                                     <li><i class="fi fi-rr-print"></i>IIMF</li>
-                        </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                Personal Development Tips for Students and Professionals
-                            </h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/5.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Lifestyle</a>
-                    </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>05 June, 2025</li>
-                            <li><i class="fi fi-rr-print"></i>IIMF</li>
-                        </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                Balancing Study, Work, and Life: Smart Strategies That Work
-                            </h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/6.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Mentorship</a>
-                    </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>18 June, 2025</li>
-                                                     <li><i class="fi fi-rr-print"></i>IIMF</li>
-                        </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                Why Every Student Needs a Mentor in Their Learning Journey
-                            </h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".3s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/7.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Innovation</a>
-                    </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>30 July, 2025</li>
-                            <li><i class="fi fi-rr-print"></i>IIMF</li>
-                        </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                Innovative Learning Models Shaping Modern Classrooms
-                            </h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/8.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Health</a>
-                    </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>15 August, 2025</li>
-                                                      <li><i class="fi fi-rr-print"></i>IIMF</li>
-                        </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                The Link Between Healthy Habits and Academic Performance
-                            </h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Single Blog -->
-            <div class="col-lg-4 col-md-6 col-12">
-                <div class="ed-blog__card wow fadeInUp" data-wow-delay=".7s" data-wow-duration="1s">
-                    <div class="ed-blog__head">
-                        <div class="ed-blog__img">
-                            <img src="assets/images/blog/blog-1/9.png" alt="blog-img" />
-                        </div>
-                        <a href="blog.html" class="ed-blog__category">Learning</a>
-                    </div>
-                    <div class="ed-blog__content">
-                        <ul class="ed-blog__meta">
-                            <li><i class="fi fi-rr-calendar"></i>01 September, 2025</li>
-                            <li><i class="fi fi-rr-print"></i>IIMF</li>
-                        </ul>
-                        <a href="blog-details.html" class="ed-blog__title">
-                            <h4>
-                                Lifelong Learning: Why Education Doesn’t Stop After Graduation
-                            </h4>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="ed-pagination">
-                    <ul class="ed-pagination__list">
-                        <li class="active">
-                            <a href="#">01</a>
-                        </li>
-                        <li>
-                            <a href="#">02</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fi-rr-arrow-small-right"></i></a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
-                    <!-- End Blog Area -->
+                    <!-- End Course Details Area -->
 
                     <!-- Start Call Action Area -->
-               <section class="ed-call-action position-relative">
+                                 <section class="ed-call-action position-relative">
         <div class="container ed-container">
             <div class="ed-call-action__inner position-relative">
                 <div class="ed-call-action__shapes">
@@ -587,7 +468,7 @@
                 </main>
 
                 <!-- Start Footer Area -->
-                               <footer class="ed-footer  main-footer position-relative">
+     <footer class="ed-footer  main-footer position-relative">
     <!-- Footer Top -->
     <div class="ed-footer__top position-relative">
         <div class="ed-footer__shapes">
@@ -710,7 +591,7 @@ Assessment
             </div>
         </div>
 
-     <!-- Start Login Modal -->
+         <!-- Start Login Modal -->
         <div class="modal fade ed-auth__modal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="ed-auth__modal-content modal-content">
@@ -843,6 +724,68 @@ Assessment
         </div>
         <!-- End Register Modal -->
 
+        <!-- Start Assessment Modal -->
+        <div class="modal fade" id="assessmentModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content assessment-modal">
+                    <div class="am-header">
+                        <div class="am-title d-flex flex-column">
+                       
+                            <h5 style="color: white!important;" class="am-title-text">Online Skill Assessment</h5>
+                        </div>
+                        <p style="color: white; text-align: center;">Test your knowledge and skills in your chosen domain.</p>
+                    </div>
+                    <div class="am-body">
+                        <div id="assessmentIntro">
+                            <p class="mb-2">Answer the following MCQs. Your score will be shown at the end.</p>
+                            <ul class="mb-3" style="list-style: disc; padding-left: 18px;">
+                                <li>Single correct answer per question</li>
+                                <li>You can navigate with Next/Previous</li>
+                            </ul>
+                            <button type="button" class="" style="background: linear-gradient(135deg, #24519a, #0f1624, #06090f)!important; padding: 10px;color: white;" id="beginQuizBtn">Begin</button>
+                        </div>
+
+                        <div id="questionContainer" style="display:none;">
+                            <div class="am-progress">
+                                <div class="am-bar" id="progressBar"></div>
+                            </div>
+                            <div class="meta-row">
+                                <span class="badge bg-secondary" id="progressBadge">Question 1/5</span>
+                                <span style="background:linear-gradient(135deg, #24519a, #0f1624, #06090f)!important ; color: white; font-weight: normal;" class="badge " id="levelBadge">Level: -</span>
+                            </div>
+                            <h6 id="questionText" class="mb-3"></h6>
+                            <div id="optionsContainer" class="list-group mb-3">
+                                <!-- Options will be populated here by JavaScript -->
+                            </div>
+                            <div class="d-flex justify-content-between am-actions">
+                                <button type="button" class="btn btn-outline-secondary" id="prevBtn">Previous</button>
+                                <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                                <button type="button" class="btn btn-success" id="submitBtn" style="display:none;">Submit</button>
+                            </div>
+                        </div>
+
+                        <div id="resultContainer" style="display:none;">
+                            <div class="result-head text-center mb-3">
+                                <h4 id="resultTitle">Your Result</h4>
+                                <div class="result-stats my-3 d-flex justify-content-center gap-2">
+                                    <span class="badge bg-success" id="scoreBadge">Score: 0/0</span>
+                                    <span class="badge bg-primary" id="percentBadge">0%</span>
+                                </div>
+                                <p id="remarkText" class="mb-3"></p>
+                            </div>
+                            <div>
+                                <h6 class="mb-2">Review</h6>
+                                <div id="reviewList" class="list-group"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Assessment Modal -->
 
         <!-- Start Sidebar  -->
         <div class="offcanvas offcanvas-end ed-sidebar" tabindex="-1" id="edSidebar" aria-labelledby="offcanvasRightLabel">
@@ -953,7 +896,220 @@ Assessment
 
         <!-- Main JS -->
         <script src="assets/plugins/js/active.js"></script>
+        <script>
+        (function(){
+            var form = document.getElementById('assessmentForm');
+            if(!form) return;
+
+            var beginBtn = null;
+            var questionContainer = null;
+            var resultContainer = null;
+            var progressBadge = null;
+            var levelBadge = null;
+            var questionText = null;
+            var optionsContainer = null;
+            var prevBtn = null;
+            var nextBtn = null;
+            var submitBtn = null;
+            var scoreBadge = null;
+            var percentBadge = null;
+            var remarkText = null;
+            var reviewList = null;
+            var progressBar = null;
+
+            var userLevel = '-';
+            var currentIndex = 0;
+            var answers = [];
+            var questionsByLevel = {
+                beginner: [
+                    { q: 'Which HTML tag is used to create a hyperlink?', options: ['<link>', '<a>', '<href>', '<nav>'], answer: 1 },
+                    { q: 'CSS is used for?', options: ['Structuring data', 'Styling web pages', 'Server logic', 'Database queries'], answer: 1 },
+                    { q: 'Which is a JavaScript data type?', options: ['integer', 'boolean', 'decimal', 'character'], answer: 1 },
+                    { q: 'Bootstrap primarily helps with?', options: ['APIs', 'UI components and layout', 'File storage', 'DNS'], answer: 1 },
+                    { q: 'img tags load resources from which attribute?', options: ['src', 'href', 'data', 'load'], answer: 0 }
+                ],
+                intermediate: [
+                    { q: 'Which array method returns a new array with elements that pass a test?', options: ['map', 'reduce', 'filter', 'forEach'], answer: 2 },
+                    { q: 'In CSS, flex container main axis is controlled by?', options: ['align-items', 'justify-content', 'flex-basis', 'gap'], answer: 1 },
+                    { q: 'Which HTTP status means Unauthorized?', options: ['200', '301', '401', '500'], answer: 2 },
+                    { q: 'const in JS means?', options: ['Block-scoped immutable binding', 'Function-scoped mutable', 'Global var', 'Class property'], answer: 0 },
+                    { q: 'Which is not a semantic HTML element?', options: ['<section>', '<article>', '<div>', '<header>'], answer: 2 }
+                ],
+                advanced: [
+                    { q: 'Big-O of binary search on sorted array?', options: ['O(n)', 'O(log n)', 'O(n log n)', 'O(1)'], answer: 1 },
+                    { q: 'Which improves Core Web Vitals LCP?', options: ['Defer non-critical CSS', 'Increase DOM size', 'Remove caching', 'Use large images'], answer: 0 },
+                    { q: 'CSR vs SSR: SSR advantage?', options: ['Lower TTFB', 'Better initial SEO', 'More JS required', 'No server needed'], answer: 1 },
+                    { q: 'Promise.allSettled returns?', options: ['Only fulfilled', 'Only rejected', 'All with status', 'First settled'], answer: 2 },
+                    { q: 'Which header enables CORS?', options: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin', 'ETag'], answer: 2 }
+                ]
+            };
+
+            function getQuestions(){
+                var list = questionsByLevel[userLevel] || questionsByLevel.beginner;
+                return list.slice();
+            }
+
+            var questions = [];
+
+            function renderQuestion(){
+                progressBadge.textContent = 'Question ' + (currentIndex + 1) + '/' + questions.length;
+                levelBadge.textContent = 'Level: ' + (userLevel || '-');
+                if (progressBar){
+                    var pct = Math.round(((currentIndex) / Math.max(1, questions.length)) * 100);
+                    progressBar.style.width = pct + '%';
+                }
+                var q = questions[currentIndex];
+                questionText.textContent = q.q;
+                optionsContainer.innerHTML = '';
+                q.options.forEach(function(opt, idx){
+                    var id = 'opt_' + currentIndex + '_' + idx;
+                    var item = document.createElement('label');
+                    item.className = 'list-group-item d-flex align-items-center';
+                    item.setAttribute('for', id);
+                    var input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = 'q_' + currentIndex;
+                    input.id = id;
+                    input.value = String(idx);
+                    input.className = 'form-check-input me-2';
+                    if (answers[currentIndex] === idx) input.checked = true;
+                    input.addEventListener('change', function(){
+                        answers[currentIndex] = idx;
+                        Array.prototype.forEach.call(optionsContainer.querySelectorAll('.list-group-item'), function(el){ el.classList.remove('active'); });
+                        item.classList.add('active');
+                        updateNavButtons();
+                    });
+                    var span = document.createElement('span');
+                    span.textContent = opt;
+                    item.appendChild(input);
+                    item.appendChild(span);
+                    if (answers[currentIndex] === idx){ item.classList.add('active'); }
+                    optionsContainer.appendChild(item);
+                });
+                updateNavButtons();
+            }
+
+            function updateNavButtons(){
+                prevBtn.disabled = currentIndex === 0;
+                var answered = typeof answers[currentIndex] === 'number';
+                nextBtn.disabled = (currentIndex === questions.length - 1) || !answered;
+                submitBtn.style.display = (currentIndex === questions.length - 1) ? '' : 'none';
+                submitBtn.disabled = !answered;
+            }
+
+            function showSection(section){
+                document.getElementById('assessmentIntro').style.display = (section === 'intro') ? '' : 'none';
+                questionContainer.style.display = (section === 'quiz') ? '' : 'none';
+                resultContainer.style.display = (section === 'result') ? '' : 'none';
+            }
+
+            function calculateAndShowResult(){
+                var correct = 0;
+                reviewList.innerHTML = '';
+                questions.forEach(function(q, i){
+                    var isCorrect = answers[i] === q.answer;
+                    if (isCorrect) correct++;
+                    var reviewItem = document.createElement('div');
+                    reviewItem.className = 'list-group-item';
+                    var title = document.createElement('div');
+                    title.className = 'fw-bold';
+                    title.textContent = 'Q' + (i+1) + ': ' + q.q;
+                    var yourAns = document.createElement('div');
+                    yourAns.innerHTML = 'Your answer: <span class="' + (isCorrect ? 'text-success' : 'text-danger') + '">' + (q.options[answers[i]] || 'Not answered') + '</span>';
+                    var correctAns = document.createElement('div');
+                    correctAns.innerHTML = 'Correct answer: <span class="text-success">' + q.options[q.answer] + '</span>';
+                    reviewItem.appendChild(title);
+                    reviewItem.appendChild(yourAns);
+                    reviewItem.appendChild(correctAns);
+                    reviewList.appendChild(reviewItem);
+                });
+                var total = questions.length;
+                var percent = Math.round((correct/total)*100);
+                scoreBadge.textContent = 'Score: ' + correct + '/' + total;
+                percentBadge.textContent = percent + '%';
+                if (percent >= 80) remarkText.textContent = 'Excellent performance! 🎉';
+                else if (percent >= 60) remarkText.textContent = 'Good job! Keep practicing.';
+                else remarkText.textContent = 'You can improve with more practice.';
+                showSection('result');
+            }
+
+            function openModal(){
+                var modalEl = document.getElementById('assessmentModal');
+                if (!modalEl) return;
+                var modal = new bootstrap.Modal(modalEl);
+                modal.show();
+            }
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                var name = document.getElementById('name').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var tel = document.getElementById('tel').value.trim();
+                var level = document.getElementById('level').value;
+                if (!name || !email || !tel || !level){
+                    alert('Please fill all fields and select difficulty.');
+                    return;
+                }
+                userLevel = level;
+                openModal();
+            });
+
+            document.addEventListener('shown.bs.modal', function(ev){
+                if (ev.target && ev.target.id === 'assessmentModal'){
+                    beginBtn = document.getElementById('beginQuizBtn');
+                    questionContainer = document.getElementById('questionContainer');
+                    resultContainer = document.getElementById('resultContainer');
+                    progressBadge = document.getElementById('progressBadge');
+                    levelBadge = document.getElementById('levelBadge');
+                    questionText = document.getElementById('questionText');
+                    optionsContainer = document.getElementById('optionsContainer');
+                    prevBtn = document.getElementById('prevBtn');
+                    nextBtn = document.getElementById('nextBtn');
+                    submitBtn = document.getElementById('submitBtn');
+                    scoreBadge = document.getElementById('scoreBadge');
+                    percentBadge = document.getElementById('percentBadge');
+                    remarkText = document.getElementById('remarkText');
+                    reviewList = document.getElementById('reviewList');
+                    progressBar = document.getElementById('progressBar');
+
+                    showSection('intro');
+
+                    if (beginBtn){
+                        beginBtn.onclick = function(){
+                            questions = getQuestions();
+                            currentIndex = 0;
+                            answers = [];
+                            showSection('quiz');
+                            renderQuestion();
+                        };
+                    }
+
+                    if (prevBtn){
+                        prevBtn.onclick = function(){
+                            if (currentIndex > 0){
+                                currentIndex--;
+                                renderQuestion();
+                            }
+                        };
+                    }
+                    if (nextBtn){
+                        nextBtn.onclick = function(){
+                            if (currentIndex < questions.length - 1){
+                                currentIndex++;
+                                renderQuestion();
+                            }
+                        };
+                    }
+                    if (submitBtn){
+                        submitBtn.onclick = function(){
+                            calculateAndShowResult();
+                        };
+                    }
+                }
+            });
+        })();
+        </script>
     </body>
 
-<!-- Mirrored from eduna-template.vercel.app/eduna/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 18 Sep 2025 05:37:33 GMT -->
+
 </html>
