@@ -26,11 +26,14 @@
   object-fit: contain;
   display: inline-block;
 }
+.ed-sidebar-logo img{
+  height: 40px;
+}
 
 .ed-sidebar-header button {
   width: 32px;
   height: 32px;
-  background: #d73b3e;
+  background: var(--ed-primary-color);
   color: var(--ed-white-color) !important;
   border-radius: 100%;
   font-size: 12px;

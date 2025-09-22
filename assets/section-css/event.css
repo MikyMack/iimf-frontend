@@ -104,7 +104,7 @@
   gap: 12px;
 }
 .ed-event__notice-tab-menu .list-group-item {
-  background-color: var(--ed-white-color);
+  background: var(--ed-primary-color)!important;
   border: none !important;
   color: var(--ed-primary-color);
   padding: 12px;
@@ -115,9 +115,12 @@
   border-radius: 4px !important;
   width: 100%;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .ed-event__notice-tab-menu .list-group-item.active {
-  background-color: var(--ed-primary-color);
+  background: var(--ed-primary-color);
   color: var(--ed-white-color);
 }
 .ed-event__notice-tab-menu .list-group-item:hover {

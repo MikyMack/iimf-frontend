@@ -15,7 +15,7 @@
   margin-top: 60px;
 }
 .ed-call-action .ed-section-head__sm-title {
-  color: var(--ed-tertiary-color);
+  color: white;
 }
 
 .ed-call-action .ed-section-head__title {
@@ -26,7 +26,7 @@
 }
 
 .ed-call-action .ed-btn {
-  background: var(--ed-tertiary-color);
+  background: white;
   color: #263238;
 }
 .ed-call-action .ed-btn:hover {

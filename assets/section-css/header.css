@@ -3,6 +3,16 @@
 ===================================================================================================*/
 
 /* Topbar Style 1  */
+::selection {
+  background: #24519a; /* highlight background color */
+  color: #fff;         /* text color while selected */
+}
+
+/* For Firefox */
+::-moz-selection {
+  background: #24519a;
+  color: #fff;
+}
 .ed-topbar {
   padding: 16px 0px;
   z-index: 999;
@@ -15,8 +25,10 @@
 }
 .ed-topbar__logo img {
   max-width: 140px;
-  height: 34px;
-  object-fit: contain;
+  height: 64px;
+position: absolute;  
+top: 0%;
+
 }
 .ed-topbar__search {
   position: relative;
@@ -78,6 +90,9 @@
   min-height: 40px;
   padding-left: 30px;
   padding-right: 30px;
+}
+.ed-topbar__category .nice-select .option:hover{
+  color: #24519a;
 }
 .ed-topbar__search input {
   font-size: 14px;
@@ -168,6 +183,7 @@
 }
 .ed-topbar__info-buttons .register-btn {
   background: var(--ed-tertiary-color);
+  color: white;
 }
 .ed-topbar__info-buttons .login-btn {
   background: linear-gradient(180deg, #fff 0%, #d7e1d8 100%);
@@ -227,6 +243,14 @@
   padding: 20.5px 0px;
   letter-spacing: -0.14px;
 }
+@media(max-width:1144px){
+  .ed-header__menu li a{
+    font-size: 13px;
+  }
+  .ed-header__contact li a{
+    font-size: 12px;
+  }
+}
 .ed-header__menu li a i {
   position: relative;
   top: 2px;
@@ -237,7 +261,7 @@
 }
 .ed-header__menu li:hover > a,
 .ed-header__menu li.active a {
-  color: var(--ed-primary-color);
+  color: #1c3e75;
 }
 
 /* DropDown Menu */

@@ -15,6 +15,7 @@
   padding-top: 10px;
   z-index: 2;
 }
+
 .ed-hero__shape-1,
 .ed-hero__shape-2,
 .ed-hero__shape-3,
@@ -59,10 +60,11 @@
   margin-bottom: 56px;
 }
 .ed-hero__content-title span {
-  background: var(--ed-tertiary-color);
+  background: var(--ed-primary-color);
   border-radius: 10px;
   display: inline-block;
   padding: 0px 14px;
+  color: white;
 }
 .ed-hero__content-text {
   font-size: 18px;
@@ -82,6 +84,9 @@
   width: 653px;
   height: 740px;
   object-fit: cover;
+}
+.pr-icons{
+  background-color: white!important;
 }
 .ed-hero__image::before {
   position: absolute;
@@ -189,7 +194,7 @@
 
 .ed-hero__tags li a {
   border-radius: 42px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--ed-primary-color);
   color: var(--ed-white-color);
   font-size: 15px;
   font-weight: 400;
