@@ -43,11 +43,11 @@
         #assessmentModal .am-header{background:linear-gradient(135deg,#1c2a52,#0f1624 60%,#06090f); color:#fff; padding:20px 24px; position:relative}
         #assessmentModal .am-header .am-title{display:flex; align-items:center; gap:12px; margin:0}
         #assessmentModal .am-header .am-title .am-badge{background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18); color:#fff; width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; border-radius:10px}
-        #assessmentModal .am-header p{opacity:.85; margin:6px 0 0 52px; font-size:14px}
+        #assessmentModal .am-header p{opacity:.9; margin:6px 0 0; font-size:14px; text-align:center}
         #assessmentModal .am-body{background:#ffffff; padding:20px 24px}
         #assessmentModal .am-progress{height:8px; background:#eef1f6; border-radius:999px; overflow:hidden; margin:8px 0 18px}
         #assessmentModal .am-progress .am-bar{height:100%; width:0%; background:linear-gradient(90deg,#4f8cff,#2dd4bf); transition:width .35s ease}
-        #assessmentModal .meta-row{display:flex; gap:8px; align-items:center; justify-content:space-between; margin-bottom:12px}
+        #assessmentModal .meta-row{display:flex; gap:10px; align-items:center; justify-content:space-between; margin-bottom:12px; flex-wrap:wrap}
         #assessmentModal .meta-row .badge{border-radius:999px; padding:6px 10px}
         #assessmentModal #questionText{font-weight:600; color:#0f1624}
         #assessmentModal #optionsContainer .list-group-item{border:1px solid #e7ebf3; border-radius:14px; margin-bottom:10px; padding:12px 14px; cursor:pointer; transition:all .2s ease; display:flex; gap:10px}
@@ -59,6 +59,8 @@
         #assessmentModal .am-actions .btn-success{background:linear-gradient(135deg,#22c55e,#16a34a); border:0}
         #assessmentModal .result-head h4{color:#0f1624; margin:0}
         #assessmentModal .result-stats .badge{border-radius:10px; padding:10px 12px; font-size:14px}
+        #assessmentModal .am-body .form-label{font-weight:600}
+        #assessmentModal #resultChart{width:100%}
         @media (max-width: 575.98px){#assessmentModal .am-header{padding:16px} #assessmentModal .am-body{padding:16px}}
         </style>
     </head>
@@ -590,7 +592,54 @@ Assessment
                 <!-- End Footer Area  -->
             </div>
         </div>
-
+    <nav class="celestial-nav-container">
+        <ul class="stellar-nav-list">
+            <li class="orbital-nav-item">
+                <a href="index.html" class="cosmic-nav-link ">
+                    <svg class="nebula-nav-icon" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <span class="constellation-nav-text">Home</span>
+                </a>
+            </li>
+            
+            <li class="orbital-nav-item ">
+                <a href="assessment.html" class="cosmic-nav-link active">
+                    <svg class="nebula-nav-icon" viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                    <span class="constellation-nav-text">Assessment</span>
+                </a>
+            </li>
+            
+            <li class="orbital-nav-item ">
+                <a href="course.html" class="cosmic-nav-link">
+                    <svg class="nebula-nav-icon" viewBox="0 0 24 24">
+                        <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+                    </svg>
+                    <span class="constellation-nav-text">Courses</span>
+                </a>
+            </li>
+            
+            <li class="orbital-nav-item ">
+                <a href="aboutUs.html" class="cosmic-nav-link">
+                    <svg class="nebula-nav-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    <span class="constellation-nav-text">About</span>
+                </a>
+            </li>
+            
+            <li class="orbital-nav-item">
+                <a href="contact.html" class="cosmic-nav-link">
+                    <svg class="nebula-nav-icon" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <span class="constellation-nav-text">Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
          <!-- Start Login Modal -->
         <div class="modal fade ed-auth__modal" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -738,6 +787,30 @@ Assessment
                     <div class="am-body">
                         <div id="assessmentIntro">
                             <p class="mb-2">Answer the following MCQs. Your score will be shown at the end.</p>
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-md-4 d-flex flex-column">
+                                    <label class="form-label">Category</label>
+                                    <select id="assessCategory" class="form-control">
+                                        <option value="plus2">+2 Student</option>
+                                        <option value="graduate">Graduate</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-4 d-flex flex-column">
+                                    <label class="form-label">Test</label>
+                                    <select id="assessTest" class="form-control">
+                                        <option value="career">Career Aptitude</option>
+                                        <option value="personality">Personality</option>
+                                        <option value="interest">Interest Assessment</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-4 d-flex flex-column">
+                                    <label class="form-label">Mode</label>
+                                    <select id="assessMode" class="form-control">
+                                        <option value="likert">Self-Reflective</option>
+                                        <option value="mcq">MCQ</option>
+                                    </select>
+                                </div>
+                            </div>
                             <ul class="mb-3" style="list-style: disc; padding-left: 18px;">
                                 <li>Single correct answer per question</li>
                                 <li>You can navigate with Next/Previous</li>
@@ -772,6 +845,10 @@ Assessment
                                     <span class="badge bg-primary" id="percentBadge">0%</span>
                                 </div>
                                 <p id="remarkText" class="mb-3"></p>
+                                <div class="mb-3">
+                                    <canvas id="resultChart" height="140"></canvas>
+                                </div>
+                                <button type="button" class="btn btn-sm btn-outline-primary" id="downloadPdfBtn">Download PDF Report</button>
                             </div>
                             <div>
                                 <h6 class="mb-2">Review</h6>
@@ -893,6 +970,10 @@ Assessment
         <script src="assets/plugins/js/nice-select.min.js"></script>
         <!-- Back To Top JS -->
         <script src="assets/plugins/js/backToTop.js"></script>
+ 
+        <!-- Charts & PDF -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
         <!-- Main JS -->
         <script src="assets/plugins/js/active.js"></script>
@@ -916,32 +997,62 @@ Assessment
             var remarkText = null;
             var reviewList = null;
             var progressBar = null;
+            var assessCategory = null;
+            var assessTest = null;
+            var assessMode = null;
+            var downloadPdfBtn = null;
 
             var userLevel = '-';
             var currentIndex = 0;
             var answers = [];
+            // Simple MCQ samples (will be replaced/expanded later)
             var questionsByLevel = {
                 beginner: [
-                    { q: 'Which HTML tag is used to create a hyperlink?', options: ['<link>', '<a>', '<href>', '<nav>'], answer: 1 },
-                    { q: 'CSS is used for?', options: ['Structuring data', 'Styling web pages', 'Server logic', 'Database queries'], answer: 1 },
-                    { q: 'Which is a JavaScript data type?', options: ['integer', 'boolean', 'decimal', 'character'], answer: 1 },
-                    { q: 'Bootstrap primarily helps with?', options: ['APIs', 'UI components and layout', 'File storage', 'DNS'], answer: 1 },
-                    { q: 'img tags load resources from which attribute?', options: ['src', 'href', 'data', 'load'], answer: 0 }
+                    { q: 'Which HTML tag is used to create a hyperlink?', options: ['<link>', '<a>', '<href>', '<nav>'], answer: 1, explain: 'Use <a> with href to create links.' },
+                    { q: 'CSS is used for?', options: ['Structuring data', 'Styling web pages', 'Server logic', 'Database queries'], answer: 1, explain: 'CSS controls presentation and layout.' },
+                    { q: 'Which is a JavaScript data type?', options: ['integer', 'boolean', 'decimal', 'character'], answer: 1, explain: 'boolean is a primitive JS type.' },
+                    { q: 'Bootstrap primarily helps with?', options: ['APIs', 'UI components and layout', 'File storage', 'DNS'], answer: 1, explain: 'Bootstrap offers UI components and grid layout.' },
+                    { q: 'img tags load resources from which attribute?', options: ['src', 'href', 'data', 'load'], answer: 0, explain: 'Images use the src attribute.' }
                 ],
                 intermediate: [
-                    { q: 'Which array method returns a new array with elements that pass a test?', options: ['map', 'reduce', 'filter', 'forEach'], answer: 2 },
-                    { q: 'In CSS, flex container main axis is controlled by?', options: ['align-items', 'justify-content', 'flex-basis', 'gap'], answer: 1 },
-                    { q: 'Which HTTP status means Unauthorized?', options: ['200', '301', '401', '500'], answer: 2 },
-                    { q: 'const in JS means?', options: ['Block-scoped immutable binding', 'Function-scoped mutable', 'Global var', 'Class property'], answer: 0 },
-                    { q: 'Which is not a semantic HTML element?', options: ['<section>', '<article>', '<div>', '<header>'], answer: 2 }
+                    { q: 'Which array method returns a new array with elements that pass a test?', options: ['map', 'reduce', 'filter', 'forEach'], answer: 2, explain: 'filter keeps elements that satisfy the predicate.' },
+                    { q: 'In CSS, flex container main axis is controlled by?', options: ['align-items', 'justify-content', 'flex-basis', 'gap'], answer: 1, explain: 'justify-content aligns items along the main axis.' },
+                    { q: 'Which HTTP status means Unauthorized?', options: ['200', '301', '401', '500'], answer: 2, explain: '401 indicates missing/invalid authentication.' },
+                    { q: 'const in JS means?', options: ['Block-scoped immutable binding', 'Function-scoped mutable', 'Global var', 'Class property'], answer: 0, explain: 'const creates a block-scoped binding.' },
+                    { q: 'Which is not a semantic HTML element?', options: ['<section>', '<article>', '<div>', '<header>'], answer: 2, explain: '<div> is generic and not semantic.' }
                 ],
                 advanced: [
-                    { q: 'Big-O of binary search on sorted array?', options: ['O(n)', 'O(log n)', 'O(n log n)', 'O(1)'], answer: 1 },
-                    { q: 'Which improves Core Web Vitals LCP?', options: ['Defer non-critical CSS', 'Increase DOM size', 'Remove caching', 'Use large images'], answer: 0 },
-                    { q: 'CSR vs SSR: SSR advantage?', options: ['Lower TTFB', 'Better initial SEO', 'More JS required', 'No server needed'], answer: 1 },
-                    { q: 'Promise.allSettled returns?', options: ['Only fulfilled', 'Only rejected', 'All with status', 'First settled'], answer: 2 },
-                    { q: 'Which header enables CORS?', options: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin', 'ETag'], answer: 2 }
+                    { q: 'Big-O of binary search on sorted array?', options: ['O(n)', 'O(log n)', 'O(n log n)', 'O(1)'], answer: 1, explain: 'Binary search halves the space → O(log n).' },
+                    { q: 'Which improves Core Web Vitals LCP?', options: ['Defer non-critical CSS', 'Increase DOM size', 'Remove caching', 'Use large images'], answer: 0, explain: 'Less render-blocking improves LCP.' },
+                    { q: 'CSR vs SSR: SSR advantage?', options: ['Lower TTFB', 'Better initial SEO', 'More JS required', 'No server needed'], answer: 1, explain: 'SSR improves initial indexability.' },
+                    { q: 'Promise.allSettled returns?', options: ['Only fulfilled', 'Only rejected', 'All with status', 'First settled'], answer: 2, explain: 'It returns the status/results for all promises.' },
+                    { q: 'Which header enables CORS?', options: ['Content-Type', 'Authorization', 'Access-Control-Allow-Origin', 'ETag'], answer: 2, explain: 'ACAO controls allowed origins.' }
                 ]
+            };
+
+            // Likert statements (sample). Value map: Mostly Agree=4, Slightly Agree=3, Slightly Disagree=2, Mostly Disagree=1
+            var likertOptions = ['Mostly Agree','Slightly Agree','Slightly Disagree','Mostly Disagree'];
+            var likertStatements = {
+                plus2: {
+                    career: [
+                        { s: 'I enjoy solving logical puzzles and problems.', dim: 'Logical–Mathematical' },
+                        { s: 'I like explaining ideas using words and examples.', dim: 'Linguistic' },
+                        { s: 'I understand people’s feelings easily.', dim: 'Interpersonal' },
+                        { s: 'I prefer drawing, maps, or diagrams to learn.', dim: 'Spatial–Visual' },
+                        { s: 'I reflect on my strengths and weaknesses often.', dim: 'Intrapersonal' },
+                        { s: 'I enjoy nature and outdoor environments.', dim: 'Naturalistic' },
+                        { s: 'I like rhythm, sound patterns, or music.', dim: 'Musical–Rhythmic' },
+                        { s: 'I learn best by doing and moving.', dim: 'Bodily–Kinesthetic' }
+                    ]
+                },
+                graduate: {
+                    skills: [
+                        { s: 'I communicate ideas clearly in teams.', dim: 'Communication' },
+                        { s: 'I handle conflicts calmly and constructively.', dim: 'Teamwork' },
+                        { s: 'I plan and manage time effectively.', dim: 'Time Management' },
+                        { s: 'I adapt quickly to new tools or processes.', dim: 'Adaptability' }
+                    ]
+                }
             };
 
             function getQuestions(){
@@ -950,6 +1061,7 @@ Assessment
             }
 
             var questions = [];
+            var mode = 'mcq';
 
             function renderQuestion(){
                 progressBadge.textContent = 'Question ' + (currentIndex + 1) + '/' + questions.length;
@@ -959,9 +1071,10 @@ Assessment
                     progressBar.style.width = pct + '%';
                 }
                 var q = questions[currentIndex];
-                questionText.textContent = q.q;
+                questionText.textContent = mode === 'likert' ? q.s : q.q;
                 optionsContainer.innerHTML = '';
-                q.options.forEach(function(opt, idx){
+                var opts = mode === 'likert' ? likertOptions : q.options;
+                opts.forEach(function(opt, idx){
                     var id = 'opt_' + currentIndex + '_' + idx;
                     var item = document.createElement('label');
                     item.className = 'list-group-item d-flex align-items-center';
@@ -1003,33 +1116,71 @@ Assessment
                 resultContainer.style.display = (section === 'result') ? '' : 'none';
             }
 
-            function calculateAndShowResult(){
-                var correct = 0;
-                reviewList.innerHTML = '';
-                questions.forEach(function(q, i){
-                    var isCorrect = answers[i] === q.answer;
-                    if (isCorrect) correct++;
-                    var reviewItem = document.createElement('div');
-                    reviewItem.className = 'list-group-item';
-                    var title = document.createElement('div');
-                    title.className = 'fw-bold';
-                    title.textContent = 'Q' + (i+1) + ': ' + q.q;
-                    var yourAns = document.createElement('div');
-                    yourAns.innerHTML = 'Your answer: <span class="' + (isCorrect ? 'text-success' : 'text-danger') + '">' + (q.options[answers[i]] || 'Not answered') + '</span>';
-                    var correctAns = document.createElement('div');
-                    correctAns.innerHTML = 'Correct answer: <span class="text-success">' + q.options[q.answer] + '</span>';
-                    reviewItem.appendChild(title);
-                    reviewItem.appendChild(yourAns);
-                    reviewItem.appendChild(correctAns);
-                    reviewList.appendChild(reviewItem);
+            var chartRef = null;
+            function drawChart(labels, data){
+                var ctx = document.getElementById('resultChart');
+                if (!ctx) return;
+                if (chartRef) { chartRef.destroy(); }
+                chartRef = new Chart(ctx, {
+                    type: 'bar',
+                    data: { labels: labels, datasets: [{ label: 'Score (%)', data: data, backgroundColor: '#24519a' }]},
+                    options: { responsive: true, plugins: { legend: { display:false } }, scales: { y: { suggestedMax: 100 } } }
                 });
-                var total = questions.length;
-                var percent = Math.round((correct/total)*100);
-                scoreBadge.textContent = 'Score: ' + correct + '/' + total;
-                percentBadge.textContent = percent + '%';
-                if (percent >= 80) remarkText.textContent = 'Excellent performance! 🎉';
-                else if (percent >= 60) remarkText.textContent = 'Good job! Keep practicing.';
-                else remarkText.textContent = 'You can improve with more practice.';
+            }
+
+            function calculateAndShowResult(){
+                reviewList.innerHTML = '';
+                if (mode === 'mcq'){
+                    var correct = 0;
+                    questions.forEach(function(q, i){
+                        var isCorrect = answers[i] === q.answer;
+                        if (isCorrect) correct++;
+                        var reviewItem = document.createElement('div');
+                        reviewItem.className = 'list-group-item';
+                        var title = document.createElement('div');
+                        title.className = 'fw-bold';
+                        title.textContent = 'Q' + (i+1) + ': ' + q.q;
+                        var yourAns = document.createElement('div');
+                        yourAns.innerHTML = 'Your answer: <span class="' + (isCorrect ? 'text-success' : 'text-danger') + '">' + (q.options[answers[i]] || 'Not answered') + '</span>';
+                        var correctAns = document.createElement('div');
+                        correctAns.innerHTML = 'Correct answer: <span class="text-success">' + q.options[q.answer] + '</span>';
+                        var explain = document.createElement('div');
+                        explain.className = 'small text-muted';
+                        explain.textContent = q.explain || '';
+                        reviewItem.appendChild(title);
+                        reviewItem.appendChild(yourAns);
+                        reviewItem.appendChild(correctAns);
+                        reviewItem.appendChild(explain);
+                        reviewList.appendChild(reviewItem);
+                    });
+                    var total = questions.length;
+                    var percent = Math.round((correct/total)*100);
+                    scoreBadge.textContent = 'Score: ' + correct + '/' + total;
+                    percentBadge.textContent = percent + '%';
+                    remarkText.textContent = percent >= 80 ? 'Excellent performance! 🎉' : (percent >= 60 ? 'Good job! Keep practicing.' : 'You can improve with more practice.');
+                    // Simple category summary (placeholder)
+                    drawChart(['Score'], [percent]);
+                } else {
+                    // Likert scoring aggregation
+                    var dimToScore = {};
+                    var dimToCount = {};
+                    questions.forEach(function(q, i){
+                        var valIdx = typeof answers[i] === 'number' ? answers[i] : -1;
+                        var points = valIdx >= 0 ? (4 - valIdx) : 0; // MA=4, SA=3, SD=2, MD=1
+                        dimToScore[q.dim] = (dimToScore[q.dim] || 0) + points;
+                        dimToCount[q.dim] = (dimToCount[q.dim] || 0) + 1;
+                        var reviewItem = document.createElement('div');
+                        reviewItem.className = 'list-group-item';
+                        reviewItem.innerHTML = '<div class="fw-bold">Statement ' + (i+1) + ':</div><div>' + q.s + '</div><div>Your response: <strong>' + (likertOptions[valIdx] || 'Not answered') + '</strong></div>';
+                        reviewList.appendChild(reviewItem);
+                    });
+                    var labels = Object.keys(dimToScore);
+                    var data = labels.map(function(k){ return Math.round((dimToScore[k] / (dimToCount[k]*4))*100); });
+                    scoreBadge.textContent = 'Dimensions: ' + labels.length;
+                    percentBadge.textContent = '';
+                    remarkText.textContent = 'Higher bars indicate stronger aptitude/trait levels.';
+                    drawChart(labels, data);
+                }
                 showSection('result');
             }
 
@@ -1071,12 +1222,26 @@ Assessment
                     remarkText = document.getElementById('remarkText');
                     reviewList = document.getElementById('reviewList');
                     progressBar = document.getElementById('progressBar');
+                    assessCategory = document.getElementById('assessCategory');
+                    assessTest = document.getElementById('assessTest');
+                    assessMode = document.getElementById('assessMode');
+                    downloadPdfBtn = document.getElementById('downloadPdfBtn');
 
                     showSection('intro');
 
                     if (beginBtn){
                         beginBtn.onclick = function(){
-                            questions = getQuestions();
+                            mode = (assessMode && assessMode.value) || 'mcq';
+                            if (mode === 'likert'){
+                                // Choose likert pool based on category/test
+                                if (assessCategory && assessCategory.value === 'plus2'){
+                                    questions = (likertStatements.plus2.career).slice();
+                                } else {
+                                    questions = (likertStatements.graduate.skills).slice();
+                                }
+                            } else {
+                                questions = getQuestions();
+                            }
                             currentIndex = 0;
                             answers = [];
                             showSection('quiz');
@@ -1103,6 +1268,24 @@ Assessment
                     if (submitBtn){
                         submitBtn.onclick = function(){
                             calculateAndShowResult();
+                        };
+                    }
+
+                    if (downloadPdfBtn){
+                        downloadPdfBtn.onclick = function(){
+                            if (!window.jspdf || !window.jspdf.jsPDF) return;
+                            var doc = new window.jspdf.jsPDF();
+                            doc.setFontSize(14);
+                            doc.text('Assessment Report', 14, 16);
+                            doc.setFontSize(11);
+                            doc.text('Name: ' + (document.getElementById('name')?.value || ''), 14, 26);
+                            doc.text('Email: ' + (document.getElementById('email')?.value || ''), 14, 33);
+                            doc.text('Mode: ' + mode.toUpperCase(), 14, 40);
+                            doc.text('Generated on: ' + new Date().toLocaleString(), 14, 47);
+                            // Simple summary
+                            var scoreText = scoreBadge?.textContent || '';
+                            doc.text(scoreText, 14, 60);
+                            doc.save('Assessment_Report.pdf');
                         };
                     }
                 }
