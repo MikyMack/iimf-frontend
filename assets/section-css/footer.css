@@ -123,7 +123,11 @@
 .ed-footer__bottom {
   line-height: 20px;
 }
-
+@media(max-width:769px){
+  .ed-footer__bottom{
+    padding-bottom: 5rem;
+  }
+}
 .ed-footer__copyright-text a {
   font-weight: 500;
   color: white;
