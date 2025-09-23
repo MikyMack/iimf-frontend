@@ -864,6 +864,60 @@ Assessment
         </div>
         <!-- End Assessment Modal -->
 
+        <!-- Start Assessment Entry Modal (On Load) -->
+        <div class="modal fade" id="assessmentEntryModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content" style="border-radius:16px; overflow:hidden;">
+                    <div class="modal-header" style="background: linear-gradient(135deg, #24519a, #0f1624, #06090f); color: #fff;">
+                        <h5 style="color: white;" class="modal-title">Start Assessment</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-12 col-lg-5">
+                                <div class="text-center">
+                                  
+                                    <img src="assets/images/iimf/as-bnr.jpg" alt="Assessment" style="width:100%; height:auto; border-radius:12px; box-shadow:0 8px 28px rgba(0,0,0,.12);" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-7">
+                                <form id="assessmentEntryForm">
+                                    <div class="row g-3">
+                                        <div class="col-12 col-md-6 d-flex flex-column">
+                                            <label class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="entryName" required />
+                                        </div>
+                                        <div class="col-12 col-md-6 d-flex flex-column">
+                                            <label class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" id="entryEmail" required />
+                                        </div>
+                                        <div class="col-12 col-md-6 d-flex flex-column">
+                                            <label class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="entryTel" required />
+                                        </div>
+                                        <div class="col-12 col-md-6 d-flex flex-column">
+                                            <label class="form-label">Difficulty Level</label>
+                                            <select class="form-control" id="entryLevel" required>
+                                                <option value="">-- Select --</option>
+                                                <option value="beginner">Beginner</option>
+                                                <option value="intermediate">Intermediate</option>
+                                                <option value="advanced">Advanced</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Not now</button>
+                        <button type="button" class="btn btn-primary" id="entryStartBtn" style="background: linear-gradient(135deg, #24519a, #0f1624, #06090f); border:0;">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Assessment Entry Modal -->
+
         <!-- Start Sidebar  -->
         <div class="offcanvas offcanvas-end ed-sidebar" tabindex="-1" id="edSidebar" aria-labelledby="offcanvasRightLabel">
             <div class="ed-sidebar-header">
@@ -1001,6 +1055,7 @@ Assessment
             var assessTest = null;
             var assessMode = null;
             var downloadPdfBtn = null;
+            var autoBegin = false;
 
             var userLevel = '-';
             var currentIndex = 0;
@@ -1062,6 +1117,22 @@ Assessment
 
             var questions = [];
             var mode = 'mcq';
+ 
+            function goPrev(){
+                if (!questions || !questions.length) return;
+                if (currentIndex > 0){
+                    currentIndex--;
+                    renderQuestion();
+                }
+            }
+
+            function goNext(){
+                if (!questions || !questions.length) return;
+                if (currentIndex < questions.length - 1){
+                    currentIndex++;
+                    renderQuestion();
+                }
+            }
 
             function renderQuestion(){
                 progressBadge.textContent = 'Question ' + (currentIndex + 1) + '/' + questions.length;
@@ -1105,15 +1176,17 @@ Assessment
             function updateNavButtons(){
                 prevBtn.disabled = currentIndex === 0;
                 var answered = typeof answers[currentIndex] === 'number';
-                nextBtn.disabled = (currentIndex === questions.length - 1) || !answered;
+                // Allow Next to move forward even if unanswered; only disable on last question
+                nextBtn.disabled = (currentIndex === questions.length - 1);
                 submitBtn.style.display = (currentIndex === questions.length - 1) ? '' : 'none';
                 submitBtn.disabled = !answered;
             }
 
             function showSection(section){
-                document.getElementById('assessmentIntro').style.display = (section === 'intro') ? '' : 'none';
-                questionContainer.style.display = (section === 'quiz') ? '' : 'none';
-                resultContainer.style.display = (section === 'result') ? '' : 'none';
+                var introEl = document.getElementById('assessmentIntro');
+                if (introEl) introEl.style.display = (section === 'intro') ? 'block' : 'none';
+                if (questionContainer) questionContainer.style.display = (section === 'quiz') ? 'block' : 'none';
+                if (resultContainer) resultContainer.style.display = (section === 'result') ? 'block' : 'none';
             }
 
             var chartRef = null;
@@ -1191,6 +1264,37 @@ Assessment
                 modal.show();
             }
 
+            // Entry modal logic
+            document.addEventListener('DOMContentLoaded', function(){
+                var entryEl = document.getElementById('assessmentEntryModal');
+                if (entryEl){
+                    var entryModal = new bootstrap.Modal(entryEl);
+                    // Show on load after tiny delay to ensure Bootstrap ready
+                    setTimeout(function(){ entryModal.show(); }, 300);
+                    var entryStartBtn = document.getElementById('entryStartBtn');
+                    entryStartBtn && entryStartBtn.addEventListener('click', function(){
+                        var entryName = document.getElementById('entryName').value.trim();
+                        var entryEmail = document.getElementById('entryEmail').value.trim();
+                        var entryTel = document.getElementById('entryTel').value.trim();
+                        var entryLevel = document.getElementById('entryLevel').value;
+                        if (!entryName || !entryEmail || !entryTel || !entryLevel){
+                            alert('Please fill all fields.');
+                            return;
+                        }
+                        // Copy to main form so the existing flow works
+                        document.getElementById('name').value = entryName;
+                        document.getElementById('email').value = entryEmail;
+                        document.getElementById('tel').value = entryTel;
+                        document.getElementById('level').value = entryLevel;
+                        entryModal.hide();
+                        // Directly open the assessment modal
+                        userLevel = entryLevel;
+                        autoBegin = true;
+                        openModal();
+                    });
+                }
+            });
+
             form.addEventListener('submit', function(e){
                 e.preventDefault();
                 var name = document.getElementById('name').value.trim();
@@ -1227,8 +1331,6 @@ Assessment
                     assessMode = document.getElementById('assessMode');
                     downloadPdfBtn = document.getElementById('downloadPdfBtn');
 
-                    showSection('intro');
-
                     if (beginBtn){
                         beginBtn.onclick = function(){
                             mode = (assessMode && assessMode.value) || 'mcq';
@@ -1248,48 +1350,94 @@ Assessment
                             renderQuestion();
                         };
                     }
-
-                    if (prevBtn){
-                        prevBtn.onclick = function(){
-                            if (currentIndex > 0){
-                                currentIndex--;
-                                renderQuestion();
-                            }
-                        };
-                    }
-                    if (nextBtn){
-                        nextBtn.onclick = function(){
-                            if (currentIndex < questions.length - 1){
-                                currentIndex++;
-                                renderQuestion();
-                            }
-                        };
-                    }
+                    if (prevBtn){ prevBtn.onclick = goPrev; }
+                    if (nextBtn){ nextBtn.onclick = goNext; }
                     if (submitBtn){
                         submitBtn.onclick = function(){
                             calculateAndShowResult();
                         };
                     }
-
-                    if (downloadPdfBtn){
-                        downloadPdfBtn.onclick = function(){
-                            if (!window.jspdf || !window.jspdf.jsPDF) return;
-                            var doc = new window.jspdf.jsPDF();
-                            doc.setFontSize(14);
-                            doc.text('Assessment Report', 14, 16);
-                            doc.setFontSize(11);
-                            doc.text('Name: ' + (document.getElementById('name')?.value || ''), 14, 26);
-                            doc.text('Email: ' + (document.getElementById('email')?.value || ''), 14, 33);
-                            doc.text('Mode: ' + mode.toUpperCase(), 14, 40);
-                            doc.text('Generated on: ' + new Date().toLocaleString(), 14, 47);
-                            // Simple summary
-                            var scoreText = scoreBadge?.textContent || '';
-                            doc.text(scoreText, 14, 60);
-                            doc.save('Assessment_Report.pdf');
-                        };
-                    }
                 }
             });
+
+            // Safety: if for any reason the modal binding didn't attach, still respond to Begin clicks
+            document.addEventListener('click', function(e){
+                if (e.target && e.target.id === 'beginQuizBtn'){
+                    // If modal is open, proceed; otherwise open it first
+                    var isOpen = !!document.querySelector('#assessmentModal.show');
+                    if (!isOpen){
+                        openModal();
+                        return;
+                    }
+                    mode = (document.getElementById('assessMode')?.value) || 'mcq';
+                    if (mode === 'likert'){
+                        var cat = document.getElementById('assessCategory')?.value || 'plus2';
+                        questions = (cat === 'plus2' ? likertStatements.plus2.career : likertStatements.graduate.skills).slice();
+                    } else {
+                        questions = getQuestions();
+                    }
+                    currentIndex = 0;
+                    answers = [];
+                    showSection('quiz');
+                    renderQuestion();
+                }
+                if (e.target && e.target.id === 'nextBtn'){
+                    e.preventDefault();
+                    goNext();
+                }
+                if (e.target && e.target.id === 'prevBtn'){
+                    e.preventDefault();
+                    goPrev();
+                }
+            });
+
+            // Login gating for PDF download
+            var pendingDownload = false;
+            function isLoggedIn(){
+                try { return localStorage.getItem('iimf_logged_in') === 'true'; } catch(e){ return false; }
+            }
+            function performDownload(){
+                if (!window.jspdf || !window.jspdf.jsPDF) return;
+                var doc = new window.jspdf.jsPDF();
+                doc.setFontSize(14);
+                doc.text('Assessment Report', 14, 16);
+                doc.setFontSize(11);
+                doc.text('Name: ' + (document.getElementById('name')?.value || ''), 14, 26);
+                doc.text('Email: ' + (document.getElementById('email')?.value || ''), 14, 33);
+                doc.text('Mode: ' + mode.toUpperCase(), 14, 40);
+                doc.text('Generated on: ' + new Date().toLocaleString(), 14, 47);
+                var scoreText = scoreBadge?.textContent || '';
+                doc.text(scoreText, 14, 60);
+                doc.save('Assessment_Report.pdf');
+            }
+            if (downloadPdfBtn){
+                downloadPdfBtn.onclick = function(){
+                    if (!isLoggedIn()){
+                        pendingDownload = true;
+                        var loginEl = document.getElementById('loginModal');
+                        if (loginEl){
+                            var lm = new bootstrap.Modal(loginEl);
+                            lm.show();
+                        }
+                        return;
+                    }
+                    performDownload();
+                };
+            }
+            // Intercept login form submit to set login flag and then download if pending
+            var loginForm = document.querySelector('#loginModal form');
+            if (loginForm){
+                loginForm.addEventListener('submit', function(ev){
+                    ev.preventDefault();
+                    try { localStorage.setItem('iimf_logged_in','true'); } catch(e){}
+                    var loginEl = document.getElementById('loginModal');
+                    if (loginEl){
+                        var modalInst = bootstrap.Modal.getInstance(loginEl) || new bootstrap.Modal(loginEl);
+                        modalInst.hide();
+                    }
+                    if (pendingDownload){ pendingDownload = false; performDownload(); }
+                });
+            }
         })();
         </script>
     </body>
