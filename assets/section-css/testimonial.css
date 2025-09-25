@@ -232,12 +232,12 @@
   content: "";
   width: 68px;
   height: 68px;
-  background-image: url("../images/testimonial/testimonial-3/quote.svg");
+  background-image: url("../images/iimf/google-icon.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   right: 30px;
-  top: 58px;
+
   z-index: -1;
 }
 .ed-testimonial--style4 .ed-testimonial__author-info {
@@ -249,7 +249,7 @@
   margin-top: 0px;
 }
 .ed-testimonial--style4 .ed-testimonial__rattings li i {
-  color: #543ee8;
+  color: orange;
 }
 .ed-testimonial--style4 .ed-testimonial__rattings {
   margin-bottom: 12px;
@@ -262,7 +262,7 @@
 }
 
 .ed-testimonial--style4 .ed-testimonial__text {
-  font-weight: 700;
+  font-weight: normal;
   line-height: 30px;
   color: var(--ed-title-color);
 }

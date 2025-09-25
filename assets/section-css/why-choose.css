@@ -21,6 +21,9 @@
   height: 25px;
   object-fit: contain;
 }
+.ed-features__info li{
+  color: rgb(193, 190, 190)!important;
+}
 .ed-w-choose__info-head h5 {
   margin: 0;
   font-size: 20px;

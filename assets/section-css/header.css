@@ -235,7 +235,7 @@ top: 0%;
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 15px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 120%;
@@ -250,6 +250,18 @@ top: 0%;
   .ed-header__contact li a{
     font-size: 12px;
   }
+}
+@media(max-width:1020px){
+  .ed-header__menu li a{
+    font-size: 12px;
+  }
+
+}
+@media(max-width:993px){
+ 
+.ed-header{
+display: none;
+}
 }
 .ed-header__menu li a i {
   position: relative;
