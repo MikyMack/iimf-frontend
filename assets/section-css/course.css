@@ -100,6 +100,11 @@
   margin-bottom: 12px;
   line-height: 32px;
   font-size: 20px;
+        display: -webkit-box;
+  -webkit-line-clamp: 1; /* Show only 1 line */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ed-course__title h5:hover {
   color: var(--ed-primary-color);

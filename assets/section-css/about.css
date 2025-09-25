@@ -60,13 +60,15 @@
   height: 64px;
   line-height: 70px;
   border-radius: 100%;
-  background: #fceeee;
+  background: var(--ed-primary-color);
   text-align: center;
   font-size: 28px;
-  color: #df4343;
+  color: white
+;
 }
 .counter-card__info h4 {
-  color: #df4343;
+  color: #1f4684
+;
   font-size: 28px;
   letter-spacing: -0.28px;
   margin-bottom: 8px;

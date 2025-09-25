@@ -1198,7 +1198,9 @@ p {
     right: 5%;
   }
 }
-
+.nice-select{
+  width: 100%!important;
+}
 /* Nice Select CSS */
 .nice-select:active,
 .nice-select.open,

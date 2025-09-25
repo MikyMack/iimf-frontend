@@ -3,7 +3,7 @@
 ===================================================================================================*/
 
 .section-bg.hero-bg {
-  padding-top: 142px;
+  padding-top: 92px;
 }
 .section-bg.hero-bg-2 {
   padding-top: 92px;
@@ -14,6 +14,20 @@
   overflow: hidden;
   padding-top: 10px;
   z-index: 2;
+}
+.ed-hero__experience {
+    margin: 20px 0; /* spacing between title and paragraph */
+}
+
+.experience-badge {
+    display: inline-block;
+    background: var(--ed-primary-color); /* golden highlight */
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .ed-hero__shape-1,
@@ -312,7 +326,7 @@
   margin-top: 180px;
 }
 .ed-hero.ed-hero--style4 .ed-hero__content-sm-title {
-  color: #df4343;
+  color: #133b7d;
 }
 .ed-hero.ed-hero--style4 .ed-hero__content-title {
   margin-bottom: 40px;
@@ -722,9 +736,7 @@
   .ed-hero__search {
     padding-right: 140px;
   }
-   {
-    display: none;
-  }
+ 
   .section-bg.hero-bg-2 {
     padding-top: 72px;
   }
@@ -974,6 +986,219 @@
     margin-top: 24px;
   }
 }
+
+
+
+ .magnetwave-task-orb {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #152f58, #000000, #06090f);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 8px 32px rgba(36, 81, 154, 0.4),
+                0 0 0 0 rgba(36, 81, 154, 0.3);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            user-select: none;
+            animation: magnetwave-float 3s ease-in-out infinite;
+        }
+
+        .magnetwave-task-orb::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #1a5198, #0a3b69, #0c172a, #00f0ff);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: magnetwave-glow 2s ease-in-out infinite alternate;
+        }
+
+        .magnetwave-task-orb::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(36, 81, 154, 0.2) 0%, transparent 70%);
+            transform: translate(-50%, -50%) scale(0);
+            z-index: -2;
+            animation: magnetwave-pulse 2.5s ease-in-out infinite;
+        }
+
+        .magnetwave-task-orb:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 
+                0 15px 40px rgba(36, 81, 154, 0.6),
+                0 0 0 10px rgba(36, 81, 154, 0.1),
+                0 0 0 20px rgba(36, 81, 154, 0.05);
+        }
+
+        .magnetwave-task-orb:hover::before {
+            animation-duration: 0.8s;
+        }
+
+        .magnetwave-task-orb:active {
+            transform: translateY(-2px) scale(1.05);
+            transition: all 0.1s ease;
+        }
+
+        .magnetwave-orb-icon {
+            font-size: 24px;
+            margin-bottom: 2px;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+        }
+
+        .magnetwave-orb-text {
+            font-size: 10px;
+            line-height: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.5px;
+            font-weight: normal;
+        }
+
+        .magnetwave-task-orb:hover .magnetwave-orb-icon {
+            transform: rotateY(360deg);
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+        }
+
+        .magnetwave-task-orb:hover .magnetwave-orb-text {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes magnetwave-float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes magnetwave-glow {
+            0% {
+                background-position: 0% 50%;
+                opacity: 0.7;
+            }
+            100% {
+                background-position: 100% 50%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes magnetwave-pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Attractive attention-grabbing effect */
+        @keyframes magnetwave-attract {
+            0%, 100% {
+                box-shadow: 
+                    0 8px 32px rgba(36, 81, 154, 0.4),
+                    0 0 0 0 rgba(0, 240, 255, 0.4);
+            }
+            50% {
+                box-shadow: 
+                    0 8px 32px rgba(36, 81, 154, 0.4),
+                    0 0 0 15px rgba(0, 240, 255, 0.1);
+            }
+        }
+
+        .magnetwave-task-orb.attract {
+            animation: magnetwave-float 3s ease-in-out infinite, magnetwave-attract 1.5s ease-in-out infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .magnetwave-task-orb {
+                width: 70px;
+                height: 70px;
+                bottom: 95px;
+                right: 25px;
+            }
+            
+            .magnetwave-orb-icon {
+                font-size: 20px;
+            }
+            
+            .magnetwave-orb-text {
+                font-size: 9px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .magnetwave-task-orb {
+                width: 65px;
+                height: 65px;
+                bottom: 100px;
+                right: 20px;
+            }
+            
+            .magnetwave-orb-icon {
+                font-size: 18px;
+            }
+            
+            .magnetwave-orb-text {
+                font-size: 8px;
+            }
+        }
+
+        /* Click effect */
+        .magnetwave-task-orb.clicked {
+            animation: magnetwave-click-burst 0.6s ease-out;
+        }
+
+        @keyframes magnetwave-click-burst {
+            0% {
+                transform: scale(1);
+                box-shadow: 
+                    0 8px 32px rgba(36, 81, 154, 0.4),
+                    0 0 0 0 rgba(0, 240, 255, 0.6);
+            }
+            50% {
+                transform: scale(1.2);
+                box-shadow: 
+                    0 15px 40px rgba(36, 81, 154, 0.6),
+                    0 0 0 30px rgba(0, 240, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 
+                    0 8px 32px rgba(36, 81, 154, 0.4),
+                    0 0 0 0 rgba(0, 240, 255, 0);
+            }
+        }
+
+  
 /*================================================================================================
     End Hero CSS
 ===================================================================================================*/
